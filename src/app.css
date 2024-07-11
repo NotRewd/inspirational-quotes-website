@@ -20,6 +20,24 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    font-size: 1.2em;
+    margin: 15px 0px;
+}
+
+.hyperlink {
+    color: lightcoral;
+    transition: color 0.5s;
+}
+
+.hyperlink:hover {
+    color: red;
+}
+
+.hyperlink:active {
+    color: darkred;
+}
+
 .heading-description {
     margin-bottom: 50px;
 }
@@ -44,17 +62,19 @@ h1 {
     margin: 0px 20px 50px 20px;
     border-radius: 20px;
     padding: 20px 35px;
-    max-width: 700px;
     filter: drop-shadow(2mm 2mm 10px rgba(0, 0, 0, 0.2));
 }
 
 .main {
     display: flex;
     margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
     flex-direction: column;
     align-items: center;
     text-align: center;
     min-height: 100vh;
+    max-width: 700px;
     justify-content: center;
 }
 
@@ -67,6 +87,7 @@ h1 {
     background-color: lightcoral;
     border: none;
     transition: background-color 0.5s;
+    text-decoration: none;
 }
 
 .button:hover {

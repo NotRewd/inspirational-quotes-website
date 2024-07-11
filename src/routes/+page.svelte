@@ -1,20 +1,13 @@
 <script>
-  import backgroundImage from "$lib/assets/background-image.png";
-
-  let quote = "";
+  let quote;
 
   const generateQuote = async () => {
     const res = await fetch("https://api.quotable.io/random");
-    const data = await res.json();
-    quote = `"${data.content}" - ${data.author}`;
+    return await res.json();
   };
-</script>
 
-<img
-  src={backgroundImage}
-  id="background-image"
-  alt="background"
-/>
+  const onGetQuoteClicked = () => (quote = generateQuote());
+</script>
 
 <div class="main">
   <h1>Inspirational Quotes</h1>
@@ -23,8 +16,17 @@
   </p>
 
   {#if quote}
-    <p class="quote">{quote}</p>
+    {#await quote}
+      <p class="quote">Loading quote...</p>
+    {:then quote}
+      <p class="quote">
+        {quote.content} -
+        <a class="hyperlink" href={"/author/" + quote.authorSlug}
+          >{quote.author}</a
+        >
+      </p>
+    {/await}
   {/if}
 
-  <button class="button" on:click={generateQuote}>Get Quote</button>
+  <button class="button" on:click={onGetQuoteClicked}>Get Quote</button>
 </div>

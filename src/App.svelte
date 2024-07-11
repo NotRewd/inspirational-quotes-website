@@ -1,10 +1,10 @@
 <script>
-  let quote = "Loading a quote...";
+  let quote = "";
 
   const generateQuote = async () => {
-    const res = await fetch("https://favqs.com/api/qotd");
+    const res = await fetch("https://api.quotable.io/random");
     const data = await res.json();
-    quote = `"${data.quote.body.text}" - ${data.quote.author}`;
+    quote = `"${data.content}" - ${data.author}`;
   };
 </script>
 
@@ -17,10 +17,12 @@
 <div class="main">
   <h1>Inspirational Quotes</h1>
   <p class="heading-description">
-    Get your inspirational quote to make your day better.
+    An inspirational quote for you to make your day better.
   </p>
 
-  <p class="quote">{quote}</p>
+  {#if quote}
+    <p class="quote">{quote}</p>
+  {/if}
 
   <button class="button" on:click={generateQuote}>Get Quote</button>
 </div>

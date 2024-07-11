@@ -29,7 +29,7 @@ h1 {
 }
 
 #background-image {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -43,12 +43,13 @@ h1 {
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  color: lightcoral;
+  background-color: white;
   margin: 0px 20px 50px 20px;
-  background-color: gray;
   border-radius: 20px;
   padding: 20px 35px;
   max-width: 700px;
+  filter: drop-shadow(2mm 2mm 10px rgba(0, 0, 0, 0.2));
 }
 
 .main {
@@ -56,6 +57,7 @@ h1 {
   margin-top: auto;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .button {

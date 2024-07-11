@@ -1,4 +1,6 @@
 <script>
+  import backgroundImage from "$lib/assets/background-image.png";
+
   let quote = "";
 
   const generateQuote = async () => {
@@ -9,7 +11,7 @@
 </script>
 
 <img
-  src="./public/background-image.png"
+  src={backgroundImage}
   id="background-image"
   alt="background"
 />

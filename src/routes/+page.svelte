@@ -1,4 +1,7 @@
 <script>
+  import LoadingState from "$lib/components/LoadingState.svelte";
+  import ErrorState from "$lib/components/ErrorState.svelte";
+
   let quote;
 
   const generateQuote = async () => {
@@ -17,7 +20,9 @@
 
   {#if quote}
     {#await quote}
-      <p class="quote">Loading quote...</p>
+      <div class="state">
+        <LoadingState>Loading...</LoadingState>
+      </div>
     {:then quote}
       <p class="quote">
         {quote.content} -
@@ -25,8 +30,28 @@
           >{quote.author}</a
         >
       </p>
+    {:catch error}
+      <div class="state">
+        <ErrorState>API is unavailable at the moment</ErrorState>
+      </div>
     {/await}
   {/if}
 
   <button class="button" on:click={onGetQuoteClicked}>Get Quote</button>
 </div>
+
+<div class="footer">
+  <p>API provided by the <a href="https://api.quotable.io/">Quotable API</a></p>
+  <p>
+    Source code available on <a href="https://github.com/lukePeavey/quotable"
+      >GitHub</a
+    >
+  </p>
+</div>
+
+<style>
+  .state {
+    font-size: large;
+    margin: 0px 20px 50px 20px;
+  }
+</style>

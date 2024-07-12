@@ -1,38 +1,9 @@
-# create-svelte
+# Inspirational Quotes Website
+This is a website about... you guessed it, inspirational quotes!
+It is a small project of mine that I made for the Hack Club arcade to put my skills about HTML, CSS, JavaScript, Svelte and SvelteKit to the test.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Building the Website
+You can clone the entire repo, set up Node.js and build it using ``npm run build`` command.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## A Few Things To Keep In Mind
+This website uses an open source API called [Quotables](docs.quotable.io). This API, since it's free, has a limit of 180 daily requests per IP address. After that, the website will tell you that the API is unavailable at the moment.

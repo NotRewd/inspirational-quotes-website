@@ -1,4 +1,7 @@
 <script>
+  import LoadingState from "$lib/components/LoadingState.svelte";
+  import ErrorState from "$lib/components/ErrorState.svelte";
+
   export let data;
 
   const getData = async () => {
@@ -9,19 +12,27 @@
   };
 </script>
 
-<div class="main">
-  {#await getData()}
-    <p>Loading author...</p>
-  {:then data}
-    <h1>{data.name}</h1>
-    <h2>{data.description}</h2>
-    <p class="bio">{data.bio}</p>
-    <a href="/" class="button">Back</a>
-  {/await}
-</div>
+{#await getData()}
+  <div class="state">
+    <LoadingState>Loading author...</LoadingState>
+  </div>
+{:then data}
+  <h1>{data.name}</h1>
+  <h2>{data.description}</h2>
+  <p class="bio">{data.bio}</p>
+{:catch error}
+  <div class="state">
+    <ErrorState>API is unavailable at the moment</ErrorState>
+  </div>
+{/await}
+<a href="/" class="button">Back</a>
 
 <style>
   .bio {
     margin: 10px 25px 25px 25px;
+  }
+
+  .state {
+    margin-bottom: 50px;
   }
 </style>

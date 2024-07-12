@@ -28,6 +28,10 @@ h2 {
     margin: 15px 0px;
 }
 
+a {
+    color: inherit;
+}
+
 .hyperlink {
     color: lightcoral;
     transition: color 0.5s;
